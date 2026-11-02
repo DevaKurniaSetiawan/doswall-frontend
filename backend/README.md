@@ -18,8 +18,9 @@ demo credentials; never use them with real user data.
 ## Railway deployment
 
 Create a Railway project with a MySQL service and a backend service connected
-to this repository. Set the backend service root directory to `/backend`.
-Railway uses `railway.json` to start the API and check `/health`.
+to this repository. Set the backend service root directory to `/backend`, the
+build command to `npm ci`, the start command to `npm start`, and the healthcheck
+path to `/health`.
 
 Run `schema.sql` against the test database, then set these variables on the
 backend service:
@@ -29,7 +30,7 @@ backend service:
 - `CORS_ORIGINS=https://devakurniasetiawan.github.io`
 - `FRONTEND_URL=https://devakurniasetiawan.github.io/doswall-frontend`
 - `MYSQLHOST`, `MYSQLPORT`, `MYSQLUSER`, `MYSQLPASSWORD`, and `MYSQLDATABASE`
-  from the Railway MySQL service
+  linked to the corresponding variables from the Railway MySQL service
 
 Railway supplies `PORT` to the backend. Do not add a `.env` file to GitHub.
 After the backend is healthy, run `npm run seed:test-users` once from this
