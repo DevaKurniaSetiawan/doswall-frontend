@@ -17,4 +17,5 @@ node_modules
 .next/
 out/
 *.tsbuildinfo
+cron-log.txt
 .DS_Store
