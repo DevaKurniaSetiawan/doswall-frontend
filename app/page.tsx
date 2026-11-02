@@ -39,6 +39,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 // ─── Brand colors: primary #003d82, gold #c8a951, bg #f0f4fb ─────────────────
 const API_URL = getApiUrl()
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 const nav = [
   { label: 'Dashboard', icon: LayoutDashboard, roles: ['user', 'admin', 'superadmin'] },
@@ -112,11 +113,11 @@ function UnnesLogo({ size = 40, light = false }: { size?: number; light?: boolea
   if (light) {
     return (
       <div className="shrink-0 overflow-hidden rounded-full bg-white p-0.5" style={{ width: size, height: size }}>
-        <img src="/unnes-logo.png" alt="UNNES logo" className="h-full w-full object-contain" />
+        <img src={`${BASE_PATH}/unnes-logo.png`} alt="UNNES logo" className="h-full w-full object-contain" />
       </div>
     )
   }
-  return <img src="/unnes-logo.png" alt="UNNES logo" className="shrink-0 object-contain" style={{ width: size, height: size }} />
+  return <img src={`${BASE_PATH}/unnes-logo.png`} alt="UNNES logo" className="shrink-0 object-contain" style={{ width: size, height: size }} />
 }
 
 function Brand({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
@@ -343,7 +344,7 @@ function DashboardPage({ uid, token, role, onNavigate, onAnnCountChange }: {
     <>
       {/* Hero — portalberita.jpg, no extra text labels */}
       <section className="relative isolate mb-8 min-h-[190px] overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,61,130,.18)]">
-        <img src="/portalberita.jpg" alt="" aria-hidden="true"
+        <img src={`${BASE_PATH}/portalberita.jpg`} alt="" aria-hidden="true"
           className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#003d82]/90 via-[#003d82]/60 to-transparent" />
         <div className="relative flex min-h-[190px] max-w-lg flex-col justify-center px-8 py-8 text-white sm:px-10">
@@ -1367,7 +1368,7 @@ function Login({ onLogin, onReset, loading, error }: {
 
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <img src="/gerbangunnes.jpeg" alt="" aria-hidden="true"
+      <img src={`${BASE_PATH}/gerbangunnes.jpeg`} alt="" aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover object-[center_30%]" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
 
