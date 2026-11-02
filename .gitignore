@@ -10,6 +10,7 @@ __v0_jsx-dev-runtime.ts
 .env
 .env.*
 !.env.example
+*.rar
 
 # Common ignores
 node_modules
